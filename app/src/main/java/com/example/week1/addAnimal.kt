@@ -6,16 +6,19 @@ import android.os.Build
 import android.os.Bundle
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
-import com.example.week1.database.Globalvar
+import com.example.week1.database.globalvar
 import com.example.week1.databinding.ActivityAddBinding
-import com.example.week1.model.animal
-
+import com.example.week1.model.Hewan
+import kotlinx.android.synthetic.main.activity_add.*
 
 class addAnimal : AppCompatActivity() {
     private lateinit var viewBind: ActivityAddBinding
-    private lateinit var data: animal
+    private lateinit var data: Hewan
     var pcc = -1
     var img: String = ""
+    var radioGroup = radio_group
+    var radioButton = radio1_ayam
+    var button = Addhewan
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,18 +42,17 @@ class addAnimal : AppCompatActivity() {
         }
     }
 
+
+
     private fun getintent(){
         pcc = intent.getIntExtra("position", -1)
         if(pcc != -1){
-            val movie = Globalvar.listDataAnimal[pcc]
-            viewBind.toolbar2.title = "Edit movie"
-            viewBind.Addmovie.text = "Edit"
-            viewBind.imageView2.setImageURI(Uri.parse(Globalvar.listDataAnimal[pcc].imageUri))
-            viewBind.Rating.editText?.setText(movie.rating.toString())
-            viewBind.Title.editText?.setText(movie.title)
-            viewBind.Genre.editText?.setText(movie.genre)
-            viewBind.company.editText?.setText(movie.company)
-            viewBind.description.editText?.setText(movie.synopsis)
+            val Hewan = globalvar.listDataAnimal[pcc]
+            viewBind.toolbar2.title = "Edit hewan"
+            viewBind.Addhewan.text = "Edit"
+            viewBind.imageView2.setImageURI(Uri.parse(globalvar.listDataAnimal[pcc].imageUri))
+            viewBind.Nama.editText?.setText(Hewan.nama)
+            viewBind.Usia.editText?.setText(Hewan.usia.toString())
         }
     }
 
@@ -61,14 +63,12 @@ class addAnimal : AppCompatActivity() {
             GetResult.launch(myIntent)
         }
 
-        viewBind.Addmovie.setOnClickListener{
-            var title = viewBind.Title.editText?.text.toString().trim()
-            var rating = 0
-            var genre = viewBind.Genre.editText?.text.toString().trim()
-            var company = viewBind.company.editText?.text.toString().trim()
-            var description = viewBind.description.editText?.text.toString().trim()
+        viewBind.Addhewan.setOnClickListener{
+            var nama = viewBind.Nama.editText?.text.toString().trim()
+            var usia = 0
+            var imageUri = "sr"
 
-            data = animal(title, rating, genre, company, description)
+            data = Hewan(nama, usia, imageUri)
             checker()
         }
 
@@ -81,40 +81,20 @@ class addAnimal : AppCompatActivity() {
     {
         var isCompleted:Boolean = true
 
-        if(data.title!!.isEmpty()){
-            viewBind.Title.error = "Title cannot be empty"
+        if(data.nama!!.isEmpty()){
+            viewBind.Nama.error = "Title cannot be empty"
             isCompleted = false
         }else{
-            viewBind.Title.error = ""
+            viewBind.Nama.error = ""
         }
 
-        if(data.genre!!.isEmpty()){
-            viewBind.Genre.error = "genre cannot be empty"
-            isCompleted = false
-        }else{
-            viewBind.Genre.error = ""
-        }
-
-        if(data.company!!.isEmpty()){
-            viewBind.company.error = "company cannot be empty"
-            isCompleted = false
-        }else{
-            viewBind.company.error = ""
-        }
-
-        if(data.synopsis!!.isEmpty()){
-            viewBind.description.error = "synopsis cannot be empty"
-            isCompleted = false
-        }else{
-            viewBind.description.error = ""
-        }
 
         data.imageUri = img.toString()
 
 
-        if(viewBind.Rating.editText?.text.toString().isEmpty() || viewBind.Rating.editText?.text.toString().toInt() < 0)
+        if(viewBind.Usia.editText?.text.toString().isEmpty() || viewBind.Usia.editText?.text.toString().toInt() < 0)
         {
-            viewBind.Rating.error = "rating cannot be empty or 0"
+            viewBind.Usia.error = "rating cannot be empty or 0"
             isCompleted = false
         }
 
@@ -122,13 +102,13 @@ class addAnimal : AppCompatActivity() {
         {
             if(pcc == -1)
             {
-                data.rating = viewBind.Rating.editText?.text.toString().toInt()
-                Globalvar.listDataAnimal.add(data)
+                data.usia = viewBind.Usia.editText?.text.toString().toInt()
+                globalvar.listDataAnimal.add(data)
 
             }else
             {
-                data.rating = viewBind.Rating.editText?.text.toString().toInt()
-                Globalvar.listDataAnimal[pcc] = data
+                data.usia = viewBind.Usia.editText?.text.toString().toInt()
+                globalvar.listDataAnimal[pcc] = data
             }
             finish()
         }

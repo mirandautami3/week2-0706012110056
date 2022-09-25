@@ -22,7 +22,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="#BA114B">
+            android:background="#3F4749">
 
             <TextView
                 android:id="@+id/textView4"
@@ -30,7 +30,7 @@
                 android:layout_height="43dp"
                 android:layout_marginTop="20dp"
                 android:text="are you sure you want to delete this ??"
-                android:textColor="#F8F8F8"
+                android:textColor="#FFC107"
                 app:layout_constraintStart_toStartOf="@+id/textView3"
                 app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
@@ -41,7 +41,7 @@
                 android:layout_marginStart="30dp"
                 android:layout_marginTop="30dp"
                 android:text="Delete "
-                android:textColor="#FFFFFF"
+                android:textColor="#FFC107"
                 android:textSize="34sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -52,7 +52,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="30dp"
                 android:text="cancel"
-                android:textColor="#F8F8F8"
+                android:textColor="#FFC107"
                 app:layout_constraintBottom_toBottomOf="@+id/delete"
                 app:layout_constraintEnd_toStartOf="@+id/delete"
                 app:layout_constraintTop_toTopOf="@+id/delete" />
@@ -65,7 +65,7 @@
                 android:layout_marginEnd="28dp"
                 android:layout_marginBottom="20dp"
                 android:text="delete"
-                android:textColor="#FDF9F9"
+                android:textColor="#FFC107"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@+id/textView4"
                 app:layout_constraintTop_toBottomOf="@+id/textView4"

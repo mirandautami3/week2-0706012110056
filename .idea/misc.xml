@@ -30,7 +30,7 @@
         <entry key="app/src/main/res/drawable/background_shape.xml" value="0.1035" />
         <entry key="app/src/main/res/drawable/ic_baseline_edit_24.xml" value="0.1035" />
         <entry key="app/src/main/res/drawable/input.xml" value="0.172" />
-        <entry key="app/src/main/res/layout/activity_add.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_add.xml" value="0.22742919921875002" />
         <entry key="app/src/main/res/layout/activity_addzodiac.xml" value="0.2634490966796875" />
         <entry key="app/src/main/res/layout/activity_age.xml" value="0.15602836879432624" />
         <entry key="app/src/main/res/layout/activity_detail.xml" value="0.15602836879432624" />
@@ -42,7 +42,7 @@
         <entry key="app/src/main/res/layout/activity_sign.xml" value="0.32083333333333336" />
         <entry key="app/src/main/res/layout/activity_splash_screen.xml" value="0.15602836879432624" />
         <entry key="app/src/main/res/layout/activity_splash_screen2.xml" value="0.20638856588284415" />
-        <entry key="app/src/main/res/layout/data_list.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/data_list.xml" value="0.2885086059570313" />
         <entry key="app/src/main/res/layout/friendbanner.xml" value="0.2932933834427638" />
         <entry key="app/src/main/res/layout/item_image.xml" value="0.15602836879432624" />
         <entry key="app/src/main/res/layout/zodiac_main.xml" value="0.15602836879432624" />

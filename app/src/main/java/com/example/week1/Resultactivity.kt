@@ -3,15 +3,14 @@ import android.app.Activity
 import android.content.Intent
 import android.graphics.Color
 import android.net.Uri
-import android.os.Build
 import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import com.example.week1.database.Globalvar
+import com.example.week1.database.globalvar
 import com.example.week1.databinding.ActivityResultactivityBinding
-import com.example.week1.model.animal
+import com.example.week1.model.Hewan
 import com.google.android.material.snackbar.Snackbar
 
 class Resultactivity : AppCompatActivity() {
@@ -20,8 +19,8 @@ class Resultactivity : AppCompatActivity() {
     private val GetResult = registerForActivityResult(ActivityResultContracts.StartActivityForResult()){
         if (it.resultCode == Activity.RESULT_OK){
             val uri = it.data?.data
-            viewBind.imageView.setImageURI(uri)
-            Globalvar.listDataAnimal[pcc].imageUri = uri.toString()
+            viewBind.textView1.setImageURI(uri)
+            globalvar.listDataAnimal[pcc].imageUri = uri.toString()
         }
     }
 
@@ -35,32 +34,29 @@ class Resultactivity : AppCompatActivity() {
     }
 
     override fun onResume() {
-        val movie = Globalvar.listDataAnimal[pcc]
+        val Hewan = globalvar.listDataAnimal[pcc]
         super.onResume()
 
-        show(movie)
+        show(Hewan)
     }
     private fun getintent(){
         pcc = intent.getIntExtra("position", -1)
-        val movie = Globalvar.listDataAnimal[pcc]
-        if(!movie.imageUri.isEmpty())
-        {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-                baseContext.getContentResolver().takePersistableUriPermission(Uri.parse(Globalvar.listDataAnimal[pcc].imageUri),
-                    Intent.FLAG_GRANT_READ_URI_PERMISSION or Intent.FLAG_GRANT_WRITE_URI_PERMISSION
-                )
-            }
-        }
-        show(movie)
+        val Hewan = globalvar.listDataAnimal[pcc]
+//        if(Hewan.imageUri!!.isEmpty())
+//        {
+//            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+////                baseContext.contentResolver.takePersistableUriPermission(Uri.parse(globalvar.listDataAnimal[pcc].imageUri),
+////                    Intent.FLAG_GRANT_READ_URI_PERMISSION or Intent.FLAG_GRANT_WRITE_URI_PERMISSION
+////                )
+//            }
+//        }
+        show(Hewan)
     }
 
-    private fun show(movie: animal){
-        viewBind.imageView.setImageURI(Uri.parse(Globalvar.listDataAnimal[pcc].imageUri))
-        viewBind.jenis2.text = movie.genre
-        viewBind.judul.text = movie.title
-        viewBind.rating.text = movie.rating.toString()
-        viewBind.textView2.text = movie.company
-        viewBind.des.text = movie.synopsis
+    private fun show(hewan: Hewan){
+        viewBind.textView1.setImageURI(Uri.parse(globalvar.listDataAnimal[pcc].imageUri))
+        viewBind.namahewan.text = hewan.nama
+        viewBind.usiaHewan.text = hewan.usia.toString()
     }
     private fun delete(){
 
@@ -70,19 +66,19 @@ class Resultactivity : AppCompatActivity() {
 
         viewBind.Delete.setOnClickListener {
             val builder = AlertDialog.Builder(this)
-            builder.setTitle("Delete movie")
-            builder.setMessage("Are you sure you want to delete this movie?")
+            builder.setTitle("Delete Hewan")
+            builder.setMessage("Are you sure you want to delete this Hewan?")
 
 
             builder.setPositiveButton(android.R.string.yes) { function, which ->
-                val snackbar = Snackbar.make(viewBind.Delete, "Movie Deleted", Snackbar.LENGTH_INDEFINITE)
+                val snackbar = Snackbar.make(viewBind.Delete, "Hewan Deleted", Snackbar.LENGTH_INDEFINITE)
                 snackbar.setAction("Dismiss") { snackbar.dismiss() }
                 snackbar.setActionTextColor(Color.WHITE)
                 snackbar.setBackgroundTint(Color.GRAY)
                 snackbar.show()
 
                 //remove
-                Globalvar.listDataAnimal.removeAt(pcc)
+                globalvar.listDataAnimal.removeAt(pcc)
                 finish()
             }
 

@@ -8,11 +8,11 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.week1.R
 import com.example.week1.databinding.DataListBinding
-import com.example.week1.model.animal
+import com.example.week1.model.Hewan
 
 
-class ListdataRVadapter(val listmovie : ArrayList<animal>, val cardListener: cardListener) :
-    RecyclerView.Adapter<ListdataRVadapter.viewHolder>() {
+class adapter(val listDataHewan : ArrayList<Hewan>, val cardListener: cardListener) :
+    RecyclerView.Adapter<adapter.viewHolder>() {
 
 
 
@@ -21,9 +21,9 @@ class ListdataRVadapter(val listmovie : ArrayList<animal>, val cardListener: car
 
         val binding = DataListBinding.bind(itemView)
 
-        fun setData(data: animal) {
-            binding.titlecard.text = data.title
-            if (data.imageUri.isNotEmpty()) {
+        fun setData(data: Hewan) {
+            binding.titlecard.text = data.nama
+            if (data.imageUri!!.isNotEmpty()) {
                 binding.imageView3.setImageURI(Uri.parse(data.imageUri))
             }
             itemView.setOnClickListener {
@@ -39,10 +39,10 @@ class ListdataRVadapter(val listmovie : ArrayList<animal>, val cardListener: car
     }
 
     override fun onBindViewHolder(holder: viewHolder, position: Int) {
-        holder.setData(listmovie[position])
+        holder.setData(listDataHewan[position])
     }
 
     override fun getItemCount(): Int {
-        return listmovie.size
+        return listDataHewan.size
     }
 }

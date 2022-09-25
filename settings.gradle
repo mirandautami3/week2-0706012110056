@@ -12,6 +12,6 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
-rootProject.name = "datahewan"
+rootProject.name = "week2"
 
 include ':app'

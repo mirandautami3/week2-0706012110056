@@ -17,21 +17,21 @@
         android:theme="@style/Theme.Zodiage"
         tools:targetApi="31">
         <activity
-            android:name=".MainActivity"
+            android:name="com.example.week1.MainActivity"
             android:exported="false"
             />
         <activity
-            android:name=".delpopup"
+            android:name="com.example.week1.delpopup"
             android:exported="false"
             android:theme="@style/Customtheme" />
         <activity
-            android:name=".Resultactivity"
+            android:name="com.example.week1.Resultactivity"
             android:exported="false" />
         <activity
-            android:name=".addAnimal"
+            android:name="com.example.week1.addAnimal"
             android:exported="false" />
         <activity
-            android:name=".SplashScreenActivity"
+            android:name="com.example.week1.SplashScreenActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

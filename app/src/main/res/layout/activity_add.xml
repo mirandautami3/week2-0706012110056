@@ -16,20 +16,33 @@
             android:layout_height="wrap_content"
             android:background="@color/white">
 
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="#3F4749"
+                android:minHeight="?attr/actionBarSize"
+                android:theme="?attr/actionBarTheme"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:navigationIcon="?attr/actionModeCloseDrawable"
+                app:title="Add Hewan" />
+
             <ImageView
                 android:id="@+id/imageView2"
                 android:layout_width="140dp"
                 android:layout_height="200dp"
                 android:layout_marginTop="16dp"
                 android:layout_weight="1"
-                android:background="#E91E63"
+                android:background="#3F4749"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/toolbar2"
                 tools:srcCompat="@tools:sample/avatars" />
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/Title"
+                android:id="@+id/Nama"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -45,81 +58,19 @@
                     android:layout_height="wrap_content"
                     android:background="@drawable/input"
                     android:hint="Nama Hewan"
-                    android:textColor="#E91E63" />
+                    android:textColor="#3F4749" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
-            <Button
-                android:id="@+id/Addmovie"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
-                android:backgroundTint="#E91E63"
-                android:text="Add Hewan"
-                app:cornerRadius="50dp"
-                app:layout_constraintEnd_toEndOf="@+id/description"
-                app:layout_constraintStart_toStartOf="@+id/description"
-                app:layout_constraintTop_toBottomOf="@+id/description" />
-
-            <androidx.appcompat.widget.Toolbar
-                android:id="@+id/toolbar2"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:background="#E91E63"
-                android:minHeight="?attr/actionBarSize"
-                android:theme="?attr/actionBarTheme"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:navigationIcon="?attr/actionModeCloseDrawable"
-                app:title="Add Hewan" />
-
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/Rating"
+                android:id="@+id/Usia"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 app:errorEnabled="true"
-                app:layout_constraintEnd_toEndOf="@+id/Genre"
-                app:layout_constraintStart_toStartOf="@+id/Genre"
-                app:layout_constraintTop_toBottomOf="@+id/Title">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/input"
-                    android:hint="Rating"
-                    android:inputType="phone"
-                    android:textColor="#E91E63" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/Genre"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                app:errorEnabled="true"
-                app:layout_constraintEnd_toEndOf="@+id/Title"
-                app:layout_constraintStart_toStartOf="@+id/Title"
-                app:layout_constraintTop_toBottomOf="@+id/Rating">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/input"
-                    android:hint="Jenis"
-                    android:textColor="#E91E63" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/company"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                app:errorEnabled="true"
-                app:layout_constraintEnd_toEndOf="@+id/Rating"
-                app:layout_constraintStart_toStartOf="@+id/Rating"
-                app:layout_constraintTop_toBottomOf="@+id/Genre">
+                app:layout_constraintEnd_toEndOf="@+id/Nama"
+                app:layout_constraintStart_toStartOf="@+id/Nama"
+                app:layout_constraintTop_toBottomOf="@+id/Nama">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
@@ -127,27 +78,64 @@
                     android:background="@drawable/input"
                     android:hint="Usia"
                     android:inputType="textEmailAddress"
-                    android:textColor="#E91E63" />
+                    android:textColor="#3F4749" />
+
             </com.google.android.material.textfield.TextInputLayout>
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/description"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            <RadioGroup
+                android:id="@+id/radio_group"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                app:errorEnabled="true"
-                app:layout_constraintEnd_toEndOf="@+id/Rating"
-                app:layout_constraintStart_toStartOf="@+id/Rating"
-                app:layout_constraintTop_toBottomOf="@+id/company">
+                android:layout_marginTop="24dp"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="@+id/Usia"
+                app:layout_constraintStart_toStartOf="@+id/Usia"
+                app:layout_constraintTop_toBottomOf="@+id/Usia">
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/input"
-                    android:hint="Description"
-                    android:inputType="textEmailAddress"
-                    android:textColor="#E91E63" />
-            </com.google.android.material.textfield.TextInputLayout>
+                <RadioButton
+                    android:id="@+id/radio1_ayam"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="Ayam"
+                    android:textColor="#FFC107"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <RadioButton
+                    android:id="@+id/radio2_sapi"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:checked="false"
+                    android:text="Sapi"
+                    android:textColor="#FFC107"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <RadioButton
+                    android:id="@+id/radio3_kambing"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="Kambing"
+                    android:textColor="#FFC107"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+            </RadioGroup>
+
+            <Button
+                android:id="@+id/Addhewan"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="150dp"
+                android:backgroundTint="#3F4749"
+                android:text="Add Hewan"
+                app:cornerRadius="50dp"
+                app:layout_constraintEnd_toEndOf="@+id/Usia"
+                app:layout_constraintStart_toStartOf="@+id/Usia"
+                app:layout_constraintTop_toBottomOf="@+id/Usia" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
